@@ -24,9 +24,5 @@ public class MessagePop : MonoBehaviour
             Message.SetActive(false);
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }

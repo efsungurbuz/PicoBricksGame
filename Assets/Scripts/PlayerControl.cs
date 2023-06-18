@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    public GameObject hand; // Hand objesini referans almak için bir deðiþken
+    public GameObject hand; // Hand objesini referans almak iï¿½in bir deï¿½iï¿½ken
 
-    private bool hasRigidbody = false; // RigidBody bileþeninin mevcut olup olmadýðýný izlemek için bir deðiþken
+    private bool hasRigidbody = false; // RigidBody bileï¿½eninin mevcut olup olmadï¿½ï¿½ï¿½nï¿½ izlemek iï¿½in bir deï¿½iï¿½ken
 
     private void Update()
     {
@@ -16,8 +16,8 @@ public class PlayerControl : MonoBehaviour
 
     private void AddRigidbody()
     {
-        Rigidbody2D rigidbodyComponent = gameObject.AddComponent<Rigidbody2D>(); // RigidBody bileþenini ekle
-        rigidbodyComponent.gravityScale = 0f; // Gravitasyonu kapatmak için
+        Rigidbody2D rigidbodyComponent = gameObject.AddComponent<Rigidbody2D>(); // RigidBody bileï¿½enini ekle
+        rigidbodyComponent.gravityScale = 0f; // Gravitasyonu kapatmak iï¿½in
 
         hasRigidbody = true;
     }
@@ -25,17 +25,10 @@ public class PlayerControl : MonoBehaviour
     private void OnMouseDown()
     {
         Vector3 handPosition = hand.transform.position; // Hand objesinin konumunu al
-        transform.position = new Vector3(handPosition.x, handPosition.y, transform.position.z); // Sensör objesinin X, Y ve Z konumunu güncelle
+        transform.position = new Vector3(handPosition.x, handPosition.y, transform.position.z); // Sensï¿½r objesinin X, Y ve Z konumunu gï¿½ncelle
     }
 }
 
 
-    //private void Update()
-    //{
-    //    if (rigidbodyComponent.simulated && rigidbodyComponent.IsSleeping())
-    //    {
-    //        rigidbodyComponent.WakeUp(); // Rigidbody uyku durumundaysa uyanmasýný saðla
-    //    }
-    //}
 
 
