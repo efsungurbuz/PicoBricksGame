@@ -17,10 +17,4 @@ public class CameraFollow : MonoBehaviour
         //Smoothing Camera
         transform.position = Vector3.SmoothDamp(transform.position, targetedPosition, ref velocity, smoothTime);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

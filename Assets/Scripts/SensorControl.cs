@@ -6,7 +6,6 @@ public class SensorControl : MonoBehaviour
 {
     //Adding tags that they are not the project of Sensor1
     public string[] Tags = { "Sensor2"};
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         foreach (string tag in Tags)
@@ -18,4 +17,5 @@ public class SensorControl : MonoBehaviour
             }
         }
     }
+
 }
