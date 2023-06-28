@@ -8,6 +8,8 @@ TagManager:
   - Sign
   - Sensor1
   - Sensor2
+  - PlayerBody
+  - Project3
   layers:
   - Default
   - TransparentFX
