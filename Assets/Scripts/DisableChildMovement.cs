@@ -9,7 +9,7 @@ public class DisableChildMovement : MonoBehaviour
 
         private void Start()
         {
-            // Ýlk pozisyonu kaydet
+            
             initialPosition = transform.position;
         }
 
@@ -17,14 +17,14 @@ public class DisableChildMovement : MonoBehaviour
         {
             if (isMoving)
             {
-                // Grubun pozisyonunu güncelle
+             
                 transform.position = initialPosition;
             }
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            // Baþka bir objeye çarptýðýnda hareketi durdur
+            
             isMoving = false;
         }
     }

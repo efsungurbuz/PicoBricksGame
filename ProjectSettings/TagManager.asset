@@ -10,6 +10,20 @@ TagManager:
   - Sensor2
   - PlayerBody
   - Project3
+  - Sensor4
+  - Sensor3
+  - Track2
+  - Ground
+  - Track3
+  - Track4
+  - Sensor6
+  - Sensor9
+  - Sensor8
+  - Sensor12
+  - Sensor11
+  - Sensor10
+  - Sensor7
+  - Sensor5
   layers:
   - Default
   - TransparentFX
