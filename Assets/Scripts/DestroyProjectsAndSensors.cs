@@ -5,21 +5,11 @@ using UnityEngine;
 public class DestroyProjectsAndSensors : MonoBehaviour
 {
     public GameObject destroyEffect;  // Partikül efektini referans almak için bir değişken
-
+    public string sensorTag;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Sensor1") ||
-         collision.gameObject.CompareTag("Sensor2") ||
-         collision.gameObject.CompareTag("Sensor3") ||
-         collision.gameObject.CompareTag("Sensor4") ||
-         collision.gameObject.CompareTag("Sensor5") ||
-         collision.gameObject.CompareTag("Sensor6") ||
-         collision.gameObject.CompareTag("Sensor7") ||
-         collision.gameObject.CompareTag("Sensor8") ||
-         collision.gameObject.CompareTag("Sensor9") ||
-         collision.gameObject.CompareTag("Sensor10") ||
-         collision.gameObject.CompareTag("Sensor11") ||
-         collision.gameObject.CompareTag("Sensor12"))
+        if (collision.gameObject.CompareTag(sensorTag))
+         
         {
             // Efektli yok olma işlemi
             GameObject effect = Instantiate(destroyEffect, transform.position, Quaternion.identity);
