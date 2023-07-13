@@ -8,14 +8,18 @@ public class SensorControl : MonoBehaviour
     public string[] Tags = { "Sensor2", "Project3"};
     void OnCollisionEnter2D(Collision2D collision)
     {
-        foreach (string tag in Tags)
+        if (!string.IsNullOrEmpty(collision.gameObject.tag))
         {
-            if (collision.gameObject.CompareTag(tag))
+            foreach (string tag in Tags)
             {
-                HealthManager.health--;
-                break;
+                if (collision.gameObject.CompareTag(tag))
+                {
+                    HealthManager.health--;
+                    break;
+                }
             }
         }
     }
+
 
 }

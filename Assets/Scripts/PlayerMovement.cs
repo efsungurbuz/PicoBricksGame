@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rgb;
     Vector3 velocity;
 
-    float speedAmount = 10f;
+    float speedAmount = 18f;
     float jumpAmount = 15f;
     int maxJumpCount = 6; 
     int currentJumpCount = 0; 
