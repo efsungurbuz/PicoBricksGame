@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 public class LifeResetter : MonoBehaviour
 {
     public int decreaseAmount = 1; // Her temas ettiğinde düşecek can miktarı
+    public GameObject restartButton; // Sahnenizdeki butonu referanslayın
+
+    void Start()
+    {
+        // Başlangıçta butonu etkisiz hale getirin (gizleyin)
+        restartButton.SetActive(false);
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -23,12 +30,12 @@ public class LifeResetter : MonoBehaviour
             HealthManager.health -= decreaseAmount;
         }
 
-        RestartGame();
+        // Canınız bittiğinde butonu etkin hale getirin (gösterin)
+        restartButton.SetActive(true);
     }
 
-    void RestartGame()
+    public void RestartGame()
     {
-      
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         HealthManager.health = 15;
     }
