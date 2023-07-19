@@ -37,12 +37,12 @@ public class CameraFollow : MonoBehaviour
     {
         // save position of mouse in world space when drag stars (first time clicked)
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(2))
             dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
 
         // calculate distance between drag origin and new position if it is still held down
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(2))
         {
             Vector3 difference = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
 
