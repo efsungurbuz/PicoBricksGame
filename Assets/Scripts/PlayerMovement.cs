@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isCouponActive = false;
     private float couponDuration = 3f;
 
+    
     void Start()
     {
         rgb = GetComponent<Rigidbody2D>();
@@ -45,59 +46,59 @@ public class PlayerMovement : MonoBehaviour
             transform.position = new Vector3(maxXPosition, transform.position.y, transform.position.z);
         }
 
-        // Kuþ objeleri kontrolü
-        bool birdsActive = false;
+        // sensor objeleri kontrolü
+        bool sensorsActive = false;
         for (int i = 0; i < birdObjects.Length; i++)
         {
             if (birdObjects[i] != null && birdObjects[i].activeInHierarchy)
             {
-                birdsActive = true;
+                sensorsActive = true;
                 break;
             }
         }
 
-        // Ýlk grup kuþ objeleri yok olduðunda maxXPosition deðerini güncelle
-        if (!birdsActive && maxXPosition == 80f)
+        // Ýlk grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
+        if (!sensorsActive && maxXPosition == 80f)
         {
             maxXPosition = 290f;
-            birdObjects = birdObjects2; // Ýkinci grup kuþ objelerini aktif hale getir
+            birdObjects = birdObjects2; // Ýkinci grup sensor objelerini aktif hale getir
 
             StartCoroutine(ActivateCouponForDuration(coupon1, couponDuration));
         }
 
-        // Ýkinci grup kuþ objeleri kontrolü
-        birdsActive = false;
+        // Ýkinci grup sensor objeleri kontrolü
+        sensorsActive = false;
         for (int i = 0; i < birdObjects2.Length; i++)
         {
             if (birdObjects2[i] != null && birdObjects2[i].activeInHierarchy)
             {
-                birdsActive = true;
+                sensorsActive = true;
                 break;
             }
         }
 
-        // Ýkinci grup kuþ objeleri yok olduðunda maxXPosition deðerini güncelle
-        if (!birdsActive && maxXPosition == 290f)
+        // Ýkinci grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
+        if (!sensorsActive && maxXPosition == 290f)
         {
             maxXPosition = 547.3f;
-            birdObjects = birdObjects3; // Üçüncü grup kuþ objelerini aktif hale getir
+            birdObjects = birdObjects3; // Üçüncü grup sensor objelerini aktif hale getir
 
             StartCoroutine(ActivateCouponForDuration(coupon2, couponDuration));
         }
 
-        // Üçüncü grup kuþ objeleri kontrolü
-        birdsActive = false;
+        // Üçüncü grup sensor objeleri kontrolü
+        sensorsActive = false;
         for (int i = 0; i < birdObjects3.Length; i++)
         {
             if (birdObjects3[i] != null && birdObjects3[i].activeInHierarchy)
             {
-                birdsActive = true;
+                sensorsActive = true;
                 break;
             }
         }
 
-        // Üçüncü grup kuþ objeleri yok olduðunda maxXPosition deðerini güncelle
-        if (!birdsActive && maxXPosition == 547.3f)
+        // Üçüncü grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
+        if (!sensorsActive && maxXPosition == 547.3f)
         {
             maxXPosition = 1060f;
 
@@ -112,27 +113,27 @@ public class PlayerMovement : MonoBehaviour
 
         /*dört deneme */
 
-        // Üçüncü grup kuþ objeleri yok olduðunda maxXPosition deðerini güncelle
-        if (!birdsActive && maxXPosition == 1060f)
+        // Üçüncü grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
+        if (!sensorsActive && maxXPosition == 1060f)
         {
             maxXPosition = 1200f;
-            birdObjects = birdObjects4; // Üçüncü grup kuþ objelerini aktif hale getir
+            birdObjects = birdObjects4; // Üçüncü grup sensor objelerini aktif hale getir
 
             StartCoroutine(ActivateCouponForDuration(coupon2, couponDuration));
         }
-        // Dördüncü grup kuþ objeleri kontrolü
-        birdsActive = false;
+        // Dördüncü grup sensor objeleri kontrolü
+        sensorsActive = false;
         for (int i = 0; i < birdObjects4.Length; i++)
         {
             if (birdObjects4[i] != null && birdObjects4[i].activeInHierarchy)
             {
-                birdsActive = true;
+                sensorsActive = true;
                 break;
             }
         }
 
-        // Üçüncü grup kuþ objeleri yok olduðunda maxXPosition deðerini güncelle
-        if (!birdsActive && maxXPosition == 1060f)
+        // Üçüncü grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
+        if (!sensorsActive && maxXPosition == 1060f)
         {
             maxXPosition = 1200f;
 
@@ -146,10 +147,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
-
-
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -158,6 +155,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+ 
+    
     private System.Collections.IEnumerator ActivateCouponForDuration(GameObject coupon, float duration)
     {
         isCouponActive = true;

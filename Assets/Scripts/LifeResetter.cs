@@ -8,6 +8,11 @@ public class LifeResetter : MonoBehaviour
     public int decreaseAmount = 1; // Her temas ettiğinde düşecek can miktarı
     public GameObject restartButton; // Sahnenizdeki butonu referanslayın
 
+    HealthManager healthManager;
+    [SerializeField]
+    public GameObject Player;
+    bool isPlayerDead = false;
+
     void Start()
     {
         // Başlangıçta butonu etkisiz hale getirin (gizleyin)
@@ -16,7 +21,7 @@ public class LifeResetter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !isPlayerDead)
         {
             StartCoroutine(DecreaseHealthOverTime(HealthManager.health));
         }
@@ -24,14 +29,17 @@ public class LifeResetter : MonoBehaviour
 
     IEnumerator DecreaseHealthOverTime(int startingHealth)
     {
+        isPlayerDead = true;
+
         for (int i = startingHealth; i > 0; i--)
         {
             yield return new WaitForSeconds(0.6f); // Her adımda bekleme süresi
             HealthManager.health -= decreaseAmount;
         }
 
-        // Canınız bittiğinde butonu etkin hale getirin (gösterin)
+        Destroy(Player, 1f);
         restartButton.SetActive(true);
+        // Restarting the game should happen only when the restart button is pressed, so we remove it from here
     }
 
     public void RestartGame()
