@@ -27,12 +27,14 @@ public class PlayerMovement : MonoBehaviour
     private GameObject coupon4;
 
     private bool isCouponActive = false;
-    private float couponDuration = 3f;
+    private float couponDuration = 7f;
 
-    
+    private Animator animator;
+
     void Start()
     {
         rgb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -58,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Ýlk grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
-        if (!sensorsActive && maxXPosition == 80f)
+        if (!sensorsActive && maxXPosition == 100f)
         {
             maxXPosition = 290f;
             birdObjects = birdObjects2; // Ýkinci grup sensor objelerini aktif hale getir
@@ -80,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         // Ýkinci grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
         if (!sensorsActive && maxXPosition == 290f)
         {
-            maxXPosition = 547.3f;
+            maxXPosition = 585f;
             birdObjects = birdObjects3; // Üçüncü grup sensor objelerini aktif hale getir
 
             StartCoroutine(ActivateCouponForDuration(coupon2, couponDuration));
@@ -98,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Üçüncü grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
-        if (!sensorsActive && maxXPosition == 547.3f)
+        if (!sensorsActive && maxXPosition == 585f)
         {
             maxXPosition = 1060f;
 
@@ -111,16 +113,7 @@ public class PlayerMovement : MonoBehaviour
             currentJumpCount++;
         }
 
-        /*dört deneme */
-
-        // Üçüncü grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
-        if (!sensorsActive && maxXPosition == 1060f)
-        {
-            maxXPosition = 1200f;
-            birdObjects = birdObjects4; // Üçüncü grup sensor objelerini aktif hale getir
-
-            StartCoroutine(ActivateCouponForDuration(coupon2, couponDuration));
-        }
+        
         // Dördüncü grup sensor objeleri kontrolü
         sensorsActive = false;
         for (int i = 0; i < birdObjects4.Length; i++)
@@ -132,13 +125,16 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // Üçüncü grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
+        // Dördüncü grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
         if (!sensorsActive && maxXPosition == 1060f)
         {
-            maxXPosition = 1200f;
+            maxXPosition = 1300f;
+            birdObjects = birdObjects4; // Dördüncü grup sensor objelerini aktif hale getir
 
-            StartCoroutine(ActivateCouponForDuration(coupon3, couponDuration));
+            StartCoroutine(ActivateCouponForDuration(coupon4, couponDuration));
         }
+
+
 
         if (Input.GetButtonDown("Jump") && currentJumpCount < maxJumpCount)
         {

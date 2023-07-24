@@ -37,6 +37,8 @@ TagManager:
   - Project10
   - Project11
   - Project12
+  - Counter
+  - FourthBlock
   layers:
   - Default
   - TransparentFX
