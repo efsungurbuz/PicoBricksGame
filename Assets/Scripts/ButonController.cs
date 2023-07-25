@@ -13,7 +13,11 @@ public class ButonController : MonoBehaviour
     {
         SceneManager.LoadScene("Guide");
     }
-    
+ 
+    public void PlayMainGuideScene()
+    {
+        SceneManager.LoadScene("MainGuide");
+    }
     public void PlayGuideScene2()
     {
         SceneManager.LoadScene("Guide2");
@@ -31,22 +35,29 @@ public class ButonController : MonoBehaviour
     {
         SceneManager.LoadScene("GameMenu");
     }
-    /* For Guide two*/
-    public void Guide2SceneBack()
+  
+        /* For Guide two*/
+     public void Guide2SceneBack()
     {
-        SceneManager.LoadScene("Guide");
+     SceneManager.LoadScene("Guide");
     }
     public void Guide3SceneBack()
     {
+        
         SceneManager.LoadScene("Guide2");
+        
     }
     public void Guide4SceneBack()
     {
         SceneManager.LoadScene("Guide3");
     }
+    public void MainGuideSceneBack()
+    {
+        SceneManager.LoadScene("MainGuide");
+    }
     public void OpenWebsite()
     {
-        // Deðiþtirmek istediðiniz web sitesinin URL'sini aþaðýdaki satýra yazýn.
+        
         string websiteURL = "https://www.robotistan.com/sepet.xhtml";
         Application.OpenURL(websiteURL);
     }

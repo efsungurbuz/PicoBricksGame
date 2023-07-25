@@ -10,7 +10,7 @@ public class CountdownTimerandDestroyer : MonoBehaviour
     [SerializeField] private Image uiFill;
     [SerializeField] private Text uiText;
 
-    public int Duration;
+    private int Duration = 60;
     private int remainingDuration;
     private bool isCountdownStarted = false;
     private bool isPaused = false;
@@ -18,7 +18,7 @@ public class CountdownTimerandDestroyer : MonoBehaviour
     private void Start()
     {
         // Initialize UI elements
-        uiText.text = "00:00";
+        uiText.text = "00 : 00";
         uiFill.fillAmount = 0;
 
         // Set UI elements as initially invisible
