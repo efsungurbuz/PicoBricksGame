@@ -20,7 +20,7 @@ public class ProjectileDragging : MonoBehaviour
         Vector3 dragVector = GetMouseWorldPosition() - transform.position;
         float angle = Mathf.Atan2(dragVector.y, dragVector.x);
         float magnitude = dragVector.magnitude;
-        float launchForce = 5f; // F?rlatma kuvveti (istedi?iniz de?eri ayarlayabilirsiniz)
+        float launchForce = 7f; // F?rlatma kuvveti (istedi?iniz de?eri ayarlayabilirsiniz)
         rb.AddForce(new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * launchForce * magnitude, ForceMode2D.Impulse);
     }
 

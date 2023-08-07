@@ -581,7 +581,7 @@ RectTransform:
   m_GameObject: {fileID: 640968640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.26268, y: 9.69809, z: 7.380326}
+  m_LocalScale: {x: 8.197625, y: 6.100173, z: 6.727905}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 79596552}
@@ -589,7 +589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 61}
+  m_AnchoredPosition: {x: 0, y: 53}
   m_SizeDelta: {x: 71, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &640968642
@@ -767,7 +767,7 @@ RectTransform:
   m_GameObject: {fileID: 728359046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.26268, y: 9.69809, z: 5.7446346}
+  m_LocalScale: {x: 8.197625, y: 6.100173, z: 5.084461}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 79596552}
@@ -775,7 +775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -83}
+  m_AnchoredPosition: {x: 0, y: -64}
   m_SizeDelta: {x: 71, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &728359048
@@ -824,7 +824,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1232755551}
         m_TargetAssemblyTypeName: ButonController, Assembly-CSharp
-        m_MethodName: PlayGuideScene
+        m_MethodName: PlayMainGuideScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1490,7 +1490,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 4f04c6a33847df843a7cce4c99f942e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1920,15 +1920,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1190723234219443524, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.262677
+      value: 8.197625
       objectReference: {fileID: 0}
     - target: {fileID: 1190723234219443524, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
       propertyPath: m_LocalScale.y
-      value: 9.69809
+      value: 6.1001725
       objectReference: {fileID: 0}
     - target: {fileID: 1190723234219443524, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
       propertyPath: m_LocalScale.z
-      value: 7.4560094
+      value: 5.955714
       objectReference: {fileID: 0}
     - target: {fileID: 1190723234219443524, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1964,7 +1964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1190723234219443524, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -231
+      value: -174
       objectReference: {fileID: 0}
     - target: {fileID: 1190723234219443524, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1993,6 +1993,34 @@ PrefabInstance:
     - target: {fileID: 4942350063893357234, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.9245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942350063893357234, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942350063893357234, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942350063893357234, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1232755551}
+    - target: {fileID: 4942350063893357234, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942350063893357234, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySampleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942350063893357234, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942350063893357234, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5416040070716592478, guid: b77cff8c848e9894aaffbb729150d7bf, type: 3}
       propertyPath: m_Sprite

@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-
     public GameObject targetObject;
     public Vector3 cameraOffset;
     public Vector3 targetedPosition;
-    private Vector3 velocity = Vector3.zero; // It is a non-important reference for 
+    private Vector3 velocity = Vector3.zero;
     public float smoothTime = 0.2F;
 
     [SerializeField]
@@ -18,54 +17,68 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     private float zoomStep, minCamSize, maxCamSize;
 
+    private bool spacePressed = false;
+
     /* Camera follow settings */
     void LateUpdate()
     {
-        targetedPosition = targetObject.transform.position + cameraOffset;
-        targetedPosition.y += 5;
-        //Smoothing Camera
-        transform.position = Vector3.SmoothDamp(transform.position, targetedPosition, ref velocity, smoothTime);
+        if (!spacePressed) // Sadece space basýlmadýðýnda kamera takibi ve yakýnlaþtýrma iþlemleri yap
+        {
+            targetedPosition = targetObject.transform.position + cameraOffset;
+            targetedPosition.y += 5;
+            // Smoothing Camera
+            transform.position = Vector3.SmoothDamp(transform.position, targetedPosition, ref velocity, smoothTime);
+            PanCamera();
+            HandleZoom();
+        }
     }
-
-    /* Zoom in and out settings  */
+    /* Zoom in and out settings */
     private void Update()
     {
-        PanCamera();
+        // Space tuþunun durumunu kontrol eder ve ona göre iþlem yapar
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            spacePressed = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            spacePressed = false;
+        }
     }
 
     private void PanCamera()
     {
-        // save position of mouse in world space when drag stars (first time clicked)
-
         if (Input.GetMouseButtonDown(2))
             dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        // calculate distance between drag origin and new position if it is still held down
 
         if (Input.GetMouseButton(2))
         {
             Vector3 difference = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
-
-            print("origin" + dragOrigin + "newPosition" + cam.ScreenToWorldPoint(Input.mousePosition) + " =difference" + difference);
-
-            //move the camera by that distance
             cam.transform.position += difference;
         }
+    }
 
+    private void HandleZoom()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            ZoomIn();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            ZoomOut();
+        }
     }
 
     public void ZoomIn()
     {
-        float newSize = cam.orthographicSize - zoomStep; // Düzeltme: zoomStep deðeri eksi alýnmalý.
-
-        cam.orthographicSize = Mathf.Clamp(newSize, minCamSize, maxCamSize); // Düzeltme: orthographicSize deðeri atamalý.
+        float newSize = cam.orthographicSize - zoomStep;
+        cam.orthographicSize = Mathf.Clamp(newSize, minCamSize, maxCamSize);
     }
 
     public void ZoomOut()
     {
         float newSize = cam.orthographicSize + zoomStep;
-
         cam.orthographicSize = Mathf.Clamp(newSize, minCamSize, maxCamSize);
     }
-
 }

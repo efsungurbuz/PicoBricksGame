@@ -9,6 +9,7 @@ public class CountdownTimerandDestroyer : MonoBehaviour
     public GameObject targetObject;
     [SerializeField] private Image uiFill;
     [SerializeField] private Text uiText;
+    [SerializeField] private Image secondImage;
 
     private int Duration = 60;
     private int remainingDuration;
@@ -24,6 +25,9 @@ public class CountdownTimerandDestroyer : MonoBehaviour
         // Set UI elements as initially invisible
         uiFill.enabled = false;
         uiText.enabled = false;
+
+        // Hide the secondImage initially
+        secondImage.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -33,6 +37,9 @@ public class CountdownTimerandDestroyer : MonoBehaviour
             // Make UI elements visible when triggered
             uiFill.enabled = true;
             uiText.enabled = true;
+
+            // Show the secondImage for 5 seconds
+            StartCoroutine(ShowSecondImageFor5Seconds());
 
             StartCountdown();
             isCountdownStarted = true;
@@ -61,8 +68,6 @@ public class CountdownTimerandDestroyer : MonoBehaviour
         OnEnd();
     }
 
- 
-
     public void TogglePause()
     {
         isPaused = !isPaused;
@@ -71,5 +76,12 @@ public class CountdownTimerandDestroyer : MonoBehaviour
     private void OnEnd()
     {
         Destroy(targetObject); // Hedef objeyi yok et
+    }
+
+    private IEnumerator ShowSecondImageFor5Seconds()
+    {
+        secondImage.enabled = true;
+        yield return new WaitForSeconds(5f);
+        secondImage.enabled = false;
     }
 }
