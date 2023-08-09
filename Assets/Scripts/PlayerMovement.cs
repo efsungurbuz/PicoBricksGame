@@ -10,12 +10,13 @@ public class PlayerMovement : MonoBehaviour
     float jumpAmount = 12f;
     int maxJumpCount = 6;
     int currentJumpCount = 0;
+
     /* Position limitation */
     public float maxXPosition = 80f;
-    public GameObject[] birdObjects;
-    public GameObject[] birdObjects2;
-    public GameObject[] birdObjects3;
-    public GameObject[] birdObjects4;
+    public GameObject[] sensorObjects;
+    public GameObject[] sensorObjects2;
+    public GameObject[] sensorObjects3;
+    public GameObject[] sensorObjects4;
 
     public GameObject blockObjects;
     public GameObject blockObjects2;
@@ -42,66 +43,59 @@ public class PlayerMovement : MonoBehaviour
         velocity = new Vector3(Input.GetAxis("Horizontal"), 0f);
         transform.position += velocity * speedAmount * Time.deltaTime;
 
-        // Player'ýn X pozisyonunu sýnýrlama
         if (transform.position.x > maxXPosition)
         {
             transform.position = new Vector3(maxXPosition, transform.position.y, transform.position.z);
         }
 
-        // sensor objeleri kontrolü
         bool sensorsActive = false;
-        for (int i = 0; i < birdObjects.Length; i++)
+        for (int i = 0; i < sensorObjects.Length; i++)
         {
-            if (birdObjects[i] != null && birdObjects[i].activeInHierarchy)
+            if (sensorObjects[i] != null && sensorObjects[i].activeInHierarchy)
             {
                 sensorsActive = true;
                 break;
             }
         }
 
-        // Ýlk grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
         if (!sensorsActive && maxXPosition == 100f)
         {
            blockObjects.SetActive(false);
             maxXPosition = 290f;
-            birdObjects = birdObjects2; // Ýkinci grup sensor objelerini aktif hale getir
+            sensorObjects = sensorObjects2; 
 
             StartCoroutine(ActivateCouponForDuration(coupon1, couponDuration));
         }
 
-        // Ýkinci grup sensor objeleri kontrolü
         sensorsActive = false;
-        for (int i = 0; i < birdObjects2.Length; i++)
+        for (int i = 0; i < sensorObjects2.Length; i++)
         {
-            if (birdObjects2[i] != null && birdObjects2[i].activeInHierarchy)
+            if (sensorObjects2[i] != null && sensorObjects2[i].activeInHierarchy)
             {
                 sensorsActive = true;
                 break;
             }
         }
 
-        // Ýkinci grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
         if (!sensorsActive && maxXPosition == 290f)
         {
             blockObjects2.SetActive(false);
             maxXPosition = 585f;
-            birdObjects = birdObjects3; // Üçüncü grup sensor objelerini aktif hale getir
+            sensorObjects = sensorObjects3; 
 
             StartCoroutine(ActivateCouponForDuration(coupon2, couponDuration));
         }
 
-        // Üçüncü grup sensor objeleri kontrolü
         sensorsActive = false;
-        for (int i = 0; i < birdObjects3.Length; i++)
+        for (int i = 0; i < sensorObjects3.Length; i++)
         {
-            if (birdObjects3[i] != null && birdObjects3[i].activeInHierarchy)
+            if (sensorObjects3[i] != null && sensorObjects3[i].activeInHierarchy)
             {
                 sensorsActive = true;
                 break;
             }
         }
 
-        // Üçüncü grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
         if (!sensorsActive && maxXPosition == 585f)
         {
             blockObjects3.SetActive(false);
@@ -117,23 +111,21 @@ public class PlayerMovement : MonoBehaviour
         }
 
         
-        // Dördüncü grup sensor objeleri kontrolü
         sensorsActive = false;
-        for (int i = 0; i < birdObjects4.Length; i++)
+        for (int i = 0; i < sensorObjects4.Length; i++)
         {
-            if (birdObjects4[i] != null && birdObjects4[i].activeInHierarchy)
+            if (sensorObjects4[i] != null && sensorObjects4[i].activeInHierarchy)
             {
                 sensorsActive = true;
                 break;
             }
         }
 
-        // Dördüncü grup sensor objeleri yok olduðunda maxXPosition deðerini güncelle
         if (!sensorsActive && maxXPosition == 1060f)
         {
             blockObjects4.SetActive(false);
             maxXPosition = 1300f;
-            birdObjects = birdObjects4; // Dördüncü grup sensor objelerini aktif hale getir
+            sensorObjects = sensorObjects4; 
 
             StartCoroutine(ActivateCouponForDuration(coupon4, couponDuration));
         }
