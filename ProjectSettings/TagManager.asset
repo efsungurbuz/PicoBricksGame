@@ -39,6 +39,7 @@ TagManager:
   - Project12
   - Counter
   - FourthBlock
+  - Arrow
   layers:
   - Default
   - TransparentFX

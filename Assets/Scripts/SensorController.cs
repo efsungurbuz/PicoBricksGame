@@ -10,21 +10,33 @@ public class SensorController : MonoBehaviour
     public float launchForce = 2f;
 
     Vector3 initialPosition;
+    
 
+    //For the arrow
+    private GameObject arrow;
+
+    private void Start()
+    {
+        arrow.SetActive(false);
+    }
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         getInitialPosition();
+        GameObject[] arrowObjects = GameObject.FindGameObjectsWithTag("Arrow");
+        arrow = arrowObjects[0];
+        
     }
 
 
-   //If the sensors on the Player's body if block works; If the sensor is handled else block works.
+    //If the sensors on the Player's body if block works; If the sensor is handled else block works.
     private void OnMouseDown()
     {
         if (isHandled == false) 
         {
             transformToHand();
             isHandled = true;
+            arrow.SetActive(true);
         }
         else
         {
@@ -39,7 +51,9 @@ public class SensorController : MonoBehaviour
         {
             transformToHand();
         }
+       
     }
+
 
     private void transformToHand()
     {
@@ -51,9 +65,13 @@ public class SensorController : MonoBehaviour
     {
         if (isThrowing == true)
         {
+           
             isHandled = false;
             Throw();
             isThrowing = false;
+            arrow.SetActive(false);
+            
+               
         }
 
     }
@@ -66,7 +84,7 @@ public class SensorController : MonoBehaviour
         float angle = Mathf.Atan2(dragVector.y, dragVector.x);
         float magnitude = dragVector.magnitude;
         rb.AddForce(new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * launchForce * magnitude, ForceMode2D.Impulse);
-      
+        
     }
 
     private Vector3 GetMouseWorldPosition()

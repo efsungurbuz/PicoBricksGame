@@ -7,12 +7,12 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
 
     float speedAmount = 18f;
-    float jumpAmount = 12f;
-    int maxJumpCount = 6;
+    public float jumpAmount = 10f;
+    public int maxJumpCount = 6;
     int currentJumpCount = 0;
 
     /* Position limitation */
-    public float maxXPosition = 80f;
+    public float maxXPosition = 100f;
     public GameObject[] sensorObjects;
     public GameObject[] sensorObjects2;
     public GameObject[] sensorObjects3;
@@ -33,9 +33,13 @@ public class PlayerMovement : MonoBehaviour
     private float couponDuration = 7f;
 
 
+    //private Animator animator;
+
+
     void Start()
     {
         rgb = GetComponent<Rigidbody2D>();
+        //animator = GetComponent<Animator>();
     }
 
     void Update()
