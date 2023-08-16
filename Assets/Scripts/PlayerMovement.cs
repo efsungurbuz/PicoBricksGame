@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject blockObjects2;
     public GameObject blockObjects3;
     public GameObject blockObjects4;
+    public GameObject groundObjects;
 
     [SerializeField] private GameObject coupon1;
     [SerializeField] private GameObject coupon2;
@@ -29,17 +30,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject coupon4;
 
 
+
     private bool isCouponActive = false;
     private float couponDuration = 7f;
-
-
-    //private Animator animator;
 
 
     void Start()
     {
         rgb = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
+     
+
     }
 
     void Update()
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!sensorsActive && maxXPosition == 100f)
         {
-           blockObjects.SetActive(false);
+            blockObjects.SetActive(false);
             maxXPosition = 290f;
             sensorObjects = sensorObjects2; 
 
@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         if (!sensorsActive && maxXPosition == 585f)
         {
             blockObjects3.SetActive(false);
-            maxXPosition = 1060f;
+            maxXPosition = 1085f;
 
             StartCoroutine(ActivateCouponForDuration(coupon3, couponDuration));
         }
@@ -125,15 +125,17 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (!sensorsActive && maxXPosition == 1060f)
+        if (!sensorsActive && maxXPosition == 1085f)
         {
             blockObjects4.SetActive(false);
             maxXPosition = 1300f;
-            sensorObjects = sensorObjects4; 
+            sensorObjects = sensorObjects4;
 
             StartCoroutine(ActivateCouponForDuration(coupon4, couponDuration));
-        }
 
+        }
+    
+   
         if (Input.GetButtonDown("Jump") && currentJumpCount < maxJumpCount)
         {
             rgb.AddForce(Vector3.up * jumpAmount, ForceMode2D.Impulse);

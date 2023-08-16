@@ -16,6 +16,8 @@ public class CountdownTimerandDestroyer : MonoBehaviour
     private bool isCountdownStarted = false;
     private bool isPaused = false;
 
+    public GameObject gameOverButton;
+
     private void Start()
     {
         // Initialize UI elements
@@ -28,6 +30,8 @@ public class CountdownTimerandDestroyer : MonoBehaviour
 
         // Hide the secondImage initially
         secondImage.enabled = false;
+
+        gameOverButton.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -75,7 +79,8 @@ public class CountdownTimerandDestroyer : MonoBehaviour
 
     private void OnEnd()
     {
-        Destroy(targetObject); // Hedef objeyi yok et
+        Destroy(targetObject);
+        gameOverButton.SetActive(true);
     }
 
     private IEnumerator ShowSecondImageFor5Seconds()

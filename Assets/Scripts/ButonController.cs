@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ButonController : MonoBehaviour
 {
+  
+
     public void PlaySampleScene()
     {
         SceneManager.LoadScene("SampleScene");
