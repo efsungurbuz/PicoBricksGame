@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LifeResetter : MonoBehaviour
 {
-    public int decreaseAmount = 1; // Her temas ettiğinde düşecek can miktarı
-    public GameObject restartButton; // Sahnenizdeki butonu referanslayın
+    public int decreaseAmount = 1;
+    public GameObject restartButton; 
 
     HealthManager healthManager;
     [SerializeField]

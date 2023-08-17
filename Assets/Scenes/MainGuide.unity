@@ -558,7 +558,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mouse tekerle\u011Fi ile oyun sahnesini yak\u0131la\u015Ft\u0131r\u0131p
+  m_text: "Mouse tekerle\u011Fi ile oyun sahnesini yak\u0131nla\u015Ft\u0131r\u0131p
     uzakla\u015Ft\u0131rabilirsin."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
