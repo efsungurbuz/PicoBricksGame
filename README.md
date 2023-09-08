@@ -7,6 +7,6 @@
 * The player has 12 lives in total.
 * The player can not move on to other tracks without throwing the modules into the correct projects in the tracks. This process was applied to each track.
 *  [Click here](https://www.robotistan.com/picobricks-kitleri) and you can play the game from this link whose page I designed.
-* [Game Video](https://github.com/efsungurbuz/PicoBricksGame/blob/main/PicoBricksGameVideo.mp4)
+* [Download Game Video](https://github.com/efsungurbuz/PicoBricksGame/blob/main/PicoBricksGameVideo.mp4)
 
 
